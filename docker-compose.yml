@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  # Use postgres/example user/password credentials
+  hbooking_postgres:
+    image: postgres:15
+    container_name: hbooking_postgres
+    restart: on-failure
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - 5433:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - hbooking_net
+
+  hbooking_adminer:
+    image: adminer
+    container_name: hbooking_adminer
+    restart: on-failure
+    ports:
+      - 8085:8080
+    networks:
+      - hbooking_net
+
+volumes:
+  postgres-data:
+
+networks:
+  hbooking_net:

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/hbooking/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/hbooking/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/hbooking",
+  "projects": {
+    "hbooking": {
+      "type": "application",
+      "root": "apps/hbooking",
+      "entryFile": "main",
+      "sourceRoot": "apps/hbooking/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/hbooking/tsconfig.app.json"
+      }
+    },
+    "properties": {
+      "type": "application",
+      "root": "apps/properties",
+      "entryFile": "main",
+      "sourceRoot": "apps/properties/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/properties/tsconfig.app.json"
+      }
+    },
+    "drizzle": {
+      "type": "library",
+      "root": "libs/drizzle",
+      "entryFile": "index",
+      "sourceRoot": "libs/drizzle/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/drizzle/tsconfig.lib.json"
+      }
+    }
+  }
+}
